@@ -6,7 +6,7 @@ from fastapi import FastAPI, UploadFile, File, HTTPException, APIRouter, Form, D
 from fastapi.responses import Response
 from pydantic import BaseModel
 
-from sandbox.sandbox import get_or_start_sandbox, delete_sandbox
+# from sandbox.sandbox import get_or_start_sandbox, delete_sandbox
 from utils.logger import logger
 from utils.auth_utils import get_optional_user_id
 from services.supabase import DBConnection
@@ -131,7 +131,7 @@ async def get_sandbox_by_id_safely(client, sandbox_id: str):
     
     try:
         # Get the sandbox
-        sandbox = await get_or_start_sandbox(sandbox_id)
+        # sandbox = await get_or_start_sandbox(sandbox_id)
         # Extract just the sandbox object from the tuple (sandbox, sandbox_id, sandbox_pass)
         # sandbox = sandbox_tuple[0]
             
@@ -320,7 +320,7 @@ async def delete_sandbox_route(
     
     try:
         # Delete the sandbox using the sandbox module function
-        await delete_sandbox(sandbox_id)
+        # await delete_sandbox(sandbox_id)
         
         return {"status": "success", "deleted": True, "sandbox_id": sandbox_id}
     except Exception as e:
@@ -376,7 +376,7 @@ async def ensure_project_sandbox_active(
         
         # Get or start the sandbox
         logger.info(f"Ensuring sandbox is active for project {project_id}")
-        sandbox = await get_or_start_sandbox(sandbox_id)
+        # sandbox = await get_or_start_sandbox(sandbox_id)
         
         logger.info(f"Successfully ensured sandbox {sandbox_id} is active for project {project_id}")
         

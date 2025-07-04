@@ -18,7 +18,7 @@ from utils.auth_utils import get_current_user_id_from_jwt, get_user_id_from_stre
 from utils.logger import logger, structlog
 from services.billing import check_billing_status, can_use_model
 from utils.config import config
-from sandbox.sandbox import create_sandbox, delete_sandbox, get_or_start_sandbox
+# from sandbox.sandbox import create_sandbox, delete_sandbox, get_or_start_sandbox
 from services.llm import make_llm_api_call
 from run_agent_background import run_agent_background, _cleanup_redis_response_list, update_agent_run_status
 from utils.constants import MODEL_NAME_ALIASES
@@ -74,7 +74,7 @@ class AgentResponse(BaseModel):
     description: Optional[str]
     system_prompt: str
     configured_mcps: List[Dict[str, Any]]
-    custom_mcps: Optional[List[Dict[str, Any]]] = []
+    custom_mcps: Optional[List[Dict[str, Any]] = []
     agentpress_tools: Dict[str, Any]
     is_default: bool
     is_public: Optional[bool] = False

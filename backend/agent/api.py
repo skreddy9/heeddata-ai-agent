@@ -74,8 +74,7 @@ class AgentResponse(BaseModel):
     description: Optional[str]
     system_prompt: str
     configured_mcps: List[Dict[str, Any]]
-    custom_mcps: Optional[List[Dict[str, Any]] = []
-    agentpress_tools: Dict[str, Any]
+    custom_mcps: Optional[List[Dict[str, Any]]] = []    agentpress_tools: Dict[str, Any]
     is_default: bool
     is_public: Optional[bool] = False
     marketplace_published_at: Optional[str] = None

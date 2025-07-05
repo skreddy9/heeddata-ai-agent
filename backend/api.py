@@ -18,7 +18,7 @@ from pydantic import BaseModel
 import uuid
 # Import the agent API module
 from agent import api as agent_api
-from sandbox import api as sandbox_api
+# from sandbox import api as sandbox_api
 from services import billing as billing_api
 from flags import api as feature_flags_api
 from services import transcription as transcription_api
@@ -51,7 +51,7 @@ async def lifespan(app: FastAPI):
             instance_id
         )
         
-        sandbox_api.initialize(db)
+        # sandbox_api.initialize(db)
         
         # Initialize Redis connection
         from services import redis
@@ -140,7 +140,7 @@ app.add_middleware(
 
 app.include_router(agent_api.router, prefix="/api")
 
-app.include_router(sandbox_api.router, prefix="/api")
+# app.include_router(sandbox_api.router, prefix="/api")
 
 app.include_router(billing_api.router, prefix="/api")
 

@@ -6,7 +6,7 @@ from typing import Optional
 
 # from agent.tools.message_tool import MessageTool
 from agent.tools.message_tool import MessageTool
-from agent.tools.sb_deploy_tool import SandboxDeployTool
+# from agent.tools.sb_deploy_tool import SandboxDeployTool
 from agent.tools.sb_expose_tool import SandboxExposeTool
 from agent.tools.web_search_tool import SandboxWebSearchTool
 from dotenv import load_dotenv
@@ -101,7 +101,7 @@ async def run_agent(
         thread_manager.add_tool(SandboxShellTool, project_id=project_id, thread_manager=thread_manager)
         thread_manager.add_tool(SandboxFilesTool, project_id=project_id, thread_manager=thread_manager)
         thread_manager.add_tool(SandboxBrowserTool, project_id=project_id, thread_id=thread_id, thread_manager=thread_manager)
-        thread_manager.add_tool(SandboxDeployTool, project_id=project_id, thread_manager=thread_manager)
+        # thread_manager.add_tool(SandboxDeployTool, project_id=project_id, thread_manager=thread_manager)
         thread_manager.add_tool(SandboxExposeTool, project_id=project_id, thread_manager=thread_manager)
         thread_manager.add_tool(ExpandMessageTool, thread_id=thread_id, thread_manager=thread_manager)
         thread_manager.add_tool(MessageTool)
@@ -119,8 +119,8 @@ async def run_agent(
             thread_manager.add_tool(SandboxFilesTool, project_id=project_id, thread_manager=thread_manager)
         if enabled_tools.get('sb_browser_tool', {}).get('enabled', False):
             thread_manager.add_tool(SandboxBrowserTool, project_id=project_id, thread_id=thread_id, thread_manager=thread_manager)
-        if enabled_tools.get('sb_deploy_tool', {}).get('enabled', False):
-            thread_manager.add_tool(SandboxDeployTool, project_id=project_id, thread_manager=thread_manager)
+        # if enabled_tools.get('sb_deploy_tool', {}).get('enabled', False):
+        #     thread_manager.add_tool(SandboxDeployTool, project_id=project_id, thread_manager=thread_manager)
         if enabled_tools.get('sb_expose_tool', {}).get('enabled', False):
             thread_manager.add_tool(SandboxExposeTool, project_id=project_id, thread_manager=thread_manager)
         if enabled_tools.get('web_search_tool', {}).get('enabled', False):
